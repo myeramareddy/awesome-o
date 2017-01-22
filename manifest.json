@@ -6,14 +6,14 @@
   "version"         : "0.1",
 
   "icons": { 
-    "32": "images/thisOne/a32x32.png",
-    "48": "images/thisOne/a48x48.png",
-    "128": "images/thisOne/a128x128.png" 
+    "32": "images/a32x32.png",
+    "48": "images/a48x48.png",
+    "128": "images/a128x128.png" 
   },
 
   "browser_action": {
     "default_popup": "index.html",
-    "default_icon" : "images/thisOne/a36x36.png"
+    "default_icon" : "images/a32x32.png"
   },
 
   "permissions": [
