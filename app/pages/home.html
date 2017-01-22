@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>AGood Home</title>    
+</head>
+<body>
+    <div>
+        <div class="card card--medium center-text">
+
+            <!-- NOT IN ADD MODE -->
+            <div ng-if="!addButtonClicked">
+
+                <!-- NO DATA YET -->
+                <div ng-if="todoList.length <= 0">
+                    <h2 class="card__title">I am awesome-O!</h2>
+                    <p class="card__text">A place for your cool happenings and little victories for easy reference when you’re feeling a little less than awesome. Add something!</p>
+                </div>
+
+                <!-- SHOW RANDOM MEM -->
+                <div ng-if="todoList.length > 0">
+                    <h2 class="card__title">{{getRandomMemTitle()}}</h2>
+                    <p class="card__text">{{getRandomMemory().content}}</p>
+                    <p>test?</p>
+                </div>
+
+                <!-- SHOW OPTIONS -->
+                <div id='toolbar' class="card__action-bar">
+                    <button class="card__button bold-text" ng-click="setAddButtonToTrue()">ADD NEW</button>
+                    <a ng-if="todoList.length > 0" class="card__button" href="#/settings">HISTORY</a>
+                </div>
+            </div>
+
+            <!-- IN ADD MODE -->
+            <div ng-if="addButtonClicked">
+                <div class='row form-style-8 col-md-12'>
+                    <form id='todo-form'>
+                        <div class="form-group">
+                            <textarea id='new-todo' ng-model='$parent.newContent' 
+                                    placeholder={{getRandomAddPrompt()}} ng-keyup="autoExpand($event)"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="card__action-bar">
+                    <button class="card__button bold-text" ng-click="add(); closeWin()">SAVE</button>
+                    <button class="card__button" ng-click="closeWin()">CANCEL</button>
+                    <!--<button class="card__button" ng-click="setAddButtonToFalse()">CANCEL</button>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+

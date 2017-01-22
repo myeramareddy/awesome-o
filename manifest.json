@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name"            : "AwesomeO",
+  "description"     : "A place for your cool happenings and little victories for easy reference when you’re feeling less than awesome.",
+  "short_name"      : "awesome-o",
+  "version"         : "0.1",
+
+  "icons": { 
+    "32": "images/thisOne/a32x32.png",
+    "48": "images/thisOne/a48x48.png",
+    "128": "images/thisOne/a128x128.png" 
+  },
+
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon" : "images/thisOne/a36x36.png"
+  },
+
+  "permissions": [
+    "debugger",
+    "storage"
+  ]
+
+}

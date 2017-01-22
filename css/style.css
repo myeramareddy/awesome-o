@@ -1,0 +1,76 @@
+/*http://www.awwwards.com/background-patterns-designs-and-resources-for-websites.html*/
+/*http://lea.verou.me/css3patterns/#browser-support*/
+
+body {
+    background-color:#ff9900; /*ff9900, F9BF3B, ee9944*/
+    min-width:400px;
+    font-family: 'Lato', serif;
+}
+
+.footer-div {
+    margin-left: 13px;
+    font-size: 10px;
+}
+
+.main-back {
+    height:auto;
+    overflow:hidden;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.todo-item .btn-remove-todo {
+    display:none;
+}
+
+.todo-item:hover .btn-remove-todo {
+    display: block;
+}
+
+.todo-item .todo-content {
+    font-weight: bold;
+}
+.todo-item.completed .todo-content {
+    color:darkgray;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+
+#todo-list {
+    margin-bottom: 10px;
+}
+
+#btn-remove-all {
+    margin-bottom: 10px;
+}
+
+.form-style-8 {
+    width: auto;
+    margin: 10px 5px;
+}
+
+.form-style-8 textarea,
+.form-style-8 select 
+{
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 15px 5px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background-color: #fafafa;
+    margin-bottom: 5px;
+    /*font: 16px;*/
+    height: auto;
+}
+.form-style-8 textarea {
+    resize:none;
+    overflow: hidden;
+}
+

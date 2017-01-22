@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>AGood History</title>   
+</head>
+<body>
+
+    <div class="card card--medium center-text">
+        <h2 class="card__title">History</h2>
+        <p class='card__text'>Total : {{todoList.length}}</p>
+        <div class="card__action-bar">
+            <!--<a class="card__button bold-text" href="#/home" target="_self">BACK</a>-->
+            <button class="card__button bold-text" ng-click="closeWin()">DONE</button>
+            <button class="card__button" ng-click="removeAll()">DELETE ALL</button>
+        </div>
+    </div>
+
+    <div id="todo-list">
+        <div class='todo-item' ng-repeat='todo in todoList track by todo.id| orderBy: createdAt'>
+            <div class="card card--medium">
+                <p class='card__text'>{{todo.content}}</p>
+                <a class='btn-remove-todo pull-right' ng-click='remove(todo)'><i class='glyphicon glyphicon-remove'></i> </a>
+                <br/>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-div center-text">
+        <p>Made with love by <a href="https://twitter.com/mani_why" target="_blank"><b>Mani</b></a></p>
+    </div>
+</body>
+</html>
+
