@@ -7,21 +7,14 @@
     <div class="card card--medium center-text fixed-header">
         <h2 class="card__title">History</h2>
         <p class='card__text'>Total : {{memList.length}}</p>
-        <div class="card__action-bar">
-            <!--<a class="card__button bold-text" href="#/home" target="_self">BACK</a>-->
-            <button class="card__button bold-text" ng-click="closeWin()">DONE</button>
-            <button class="card__button" ng-click="removeAll()">DELETE ALL</button>
-        </div>
+      
+        <form>
+            <input style='width:100%;height:35px;text-align:center;color:#F22613' ng-model="searchText" type="text" placeholder=" Looking for something...?"></input>
+        </form>
     </div>
 
     <!-- https://code.ciphertrick.com/2015/02/07/live-search-using-custom-filter-in-angular-js/ -->
     <div>
-        <div class="card card--medium">
-            <form>
-                <input style='width:100%;height:35px' ng-model="searchText" type="text" placeholder=" Looking for something...?"></input>
-            </form>
-        </div>
-
         <div class='todo-item' ng-repeat='todo in memList | filter: searchText''>
             <div class="card card--medium">
                 <p class="card__text">{{todo.content}}</p>
@@ -35,6 +28,13 @@
     <div class="footer-div center-text">
         <p>Made with love by <a href="https://twitter.com/mani_why" target="_blank"><b>Mani</b></a></p>
     </div>
+
+    <div ng-if="isValEmpty(searchText)" class="card card--medium">
+        <div class="card__action-bar center-text">
+            <button class="card__button" ng-click="removeAll()">DELETE ALL</button>
+        </div>
+    </div>
+
 </body>
 </html>
 

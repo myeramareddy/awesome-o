@@ -71,6 +71,10 @@ angular.module('appMain').controller('homeController', function ($scope, $window
       return (value == null || value.length === 0);
     }
 
+    $scope.isValEmpty = function(value) {
+      return (value == null || value.length === 0);
+    }
+
     function getNumOfMemories() {
         if($scope.memList == null) {
             return 0;
