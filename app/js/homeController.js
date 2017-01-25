@@ -98,10 +98,11 @@ angular.module('appMain').controller('homeController', function ($scope, $window
     }
 
     $scope.removeAll = function() {
-        memStorageService.removeAll();
+        memStorageService.removeAll();   
     }
     
 });
+
 
 
 //https://ilikekillnerds.com/2014/11/constants-values-global-variables-in-angularjs-the-right-way/
