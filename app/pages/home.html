@@ -1,6 +1,8 @@
+
+<!-- https://developer.chrome.com/extensions/declare_permissions -->
 <html>
 <head>
-    <title>AGood Home</title>    
+    <title>Home</title>    
 </head>
 <body>
     <div>
@@ -10,22 +12,25 @@
             <div ng-if="!addButtonClicked">
 
                 <!-- NO DATA YET -->
-                <div ng-if="todoList.length <= 0">
+                <div ng-if="memList.length <= 0">
                     <h2 class="card__title">I am awesome-O!</h2>
                     <p class="card__text">A place for your cool happenings and little victories for easy reference when you’re feeling a little less than awesome. Add something!</p>
                 </div>
 
                 <!-- SHOW RANDOM MEM -->
-                <div ng-if="todoList.length > 0">
-                    <h2 class="card__title">{{getRandomMemTitle()}}</h2>
-                    <p class="card__text">{{getRandomMemory().content}}</p>
-                    <p>test?</p>
+                <!-- http://stackoverflow.com/questions/23866734/display-one-item-from-array-in-angularjs-without-using-ng-repeat -->
+                <div ng-if="memList.length > 0">
+                    <div ng-init="getRandomMemory()">
+                        <h2 class="card__title">{{getRandomMemTitle()}}</h2>
+                        <p class="card__text">{{randomMem.content}}</p>
+                        <p class="sub-text">{{randomMem.createdAt}}</p>
+                    </div>                    
                 </div>
 
                 <!-- SHOW OPTIONS -->
                 <div id='toolbar' class="card__action-bar">
                     <button class="card__button bold-text" ng-click="setAddButtonToTrue()">ADD NEW</button>
-                    <a ng-if="todoList.length > 0" class="card__button" href="#/settings">HISTORY</a>
+                    <a ng-if="memList.length > 0" class="card__button" href="#/settings">HISTORY</a>
                 </div>
             </div>
 

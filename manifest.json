@@ -18,7 +18,8 @@
 
   "permissions": [
     "debugger",
-    "storage"
+    "storage",
+    "unlimitedStorage"
   ]
 
 }

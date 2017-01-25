@@ -1,35 +1,28 @@
+
 angular.module('appMain').service('memStorageService', function ($q) {
     var _this = this;
     this.data = [];
-
-    this.findAll = function(callback) {
-        chrome.storage.sync.get('todo', function(keys) {
-            if (keys.todo != null) {
-                _this.data = keys.todo;
-                for (var i=0; i<_this.data.length; i++) {
-                    _this.data[i]['id'] = i + 1;
-                }
-                console.log(_this.data);
-                callback(_this.data);
-            }
-        });
-    }
-
-    this.sync = function() {
-        chrome.storage.sync.set({todo: this.data}, function() {
-            console.log('Data is stored in Chrome storage');
-        });
-    }
 
     this.add = function (newContent) {
         var id = this.data.length + 1;
         var todo = {
             id: id,
             content: newContent,
-            createdAt: Date.now()
+            createdAt: new Date().toDateString() + " " + new Date().toLocaleTimeString()
         };
         this.data.push(todo);
         this.sync();
+    }
+
+    this.sync = function() {
+        chrome.storage.local.set({allMems: this.data}, function() {
+            if(chrome.runtime.lastError) {
+                console.log(chrome.runtime.lastError.message);
+                return;
+            } else {
+                console.log('Data stored in local chrome.storage');
+            }
+        });
     }
 
     this.remove = function(todo) {
@@ -42,4 +35,24 @@ angular.module('appMain').service('memStorageService', function ($q) {
         this.sync();
     }
 
+    this.findAll = function(callback) {
+        chrome.storage.local.get('allMems', function(keys) {
+            //callback when chrome.get finishes getting array
+            if (keys.allMems != null) {
+                //set class.data to the returned objects
+                _this.data = keys.allMems;
+                //send this back to whoever called me
+                //console.log(_this.data);
+                callback(_this.data);
+            }
+        });
+    }
+
 });
+
+//http://stackoverflow.com/questions/20181323/passing-data-between-controllers-in-angular-js
+
+//keys -> allMems -> data -> todo -> id
+//                               -> content
+//                               -> createdAt
+

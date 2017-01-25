@@ -25,6 +25,22 @@ body {
   text-align: center;
 }
 
+.sub-text {
+    color: #BFBFBF;
+    font-size: 11px;
+}
+
+.search-bar {
+    min-width:400px;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 15px;
+    color: #b56969;
+    border-radius: 4px;
+}
+
 .todo-item .btn-remove-todo {
     display:none;
 }

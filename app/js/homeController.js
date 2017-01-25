@@ -6,13 +6,14 @@ angular.module('appMain').controller('homeController', function ($scope, $window
     $scope.addButtonClicked = false;
 
     $scope.staticStuff = staticStuff;
+    $scope.randomMem = null;
 
     $scope.$watch('memStorageService.data', function() {
-        $scope.todoList = $scope.memStorageService.data;
+        $scope.memList = $scope.memStorageService.data;
     });
 
-    $scope.memStorageService.findAll(function(data){
-        $scope.todoList = data;
+    $scope.memStorageService.findAll(function(data) {
+        $scope.memList = data;
         $scope.$apply();
     });
 
@@ -25,8 +26,9 @@ angular.module('appMain').controller('homeController', function ($scope, $window
     };
 
     $scope.getRandomMemory = function () {
-        var idx = getRandomInt(0,$scope.todoList.length-1);
-        var c = $scope.todoList[idx]; 
+        var idx = getRandomInt(0,$scope.memList.length-1);
+        $scope.randomMem = $scope.memList[idx];
+        var c = $scope.memList[idx]; 
         return c
     };
 
@@ -70,10 +72,10 @@ angular.module('appMain').controller('homeController', function ($scope, $window
     }
 
     function getNumOfMemories() {
-        if($scope.todoList == null) {
+        if($scope.memList == null) {
             return 0;
         } else {
-            return $scope.todoList.length;
+            return $scope.memList.length;
         }
     }
     
@@ -97,9 +99,10 @@ angular.module('appMain').controller('homeController', function ($scope, $window
     
 });
 
+
 //https://ilikekillnerds.com/2014/11/constants-values-global-variables-in-angularjs-the-right-way/
 angular.module('appMain').value("staticStuff", {
-    memSubtitleArr : ["Think about this...","Remember this?","Ohhh yeaaa..."],
-    addNewPromptArr : ["New good thing...","Something amazing..."]
+    memSubtitleArr : ["Think about this...","Remember this?","Ohhh yeaaa...","That's cool!"],
+    addNewPromptArr : ["New awesome thing...","Something awesome..."]
 });
 
