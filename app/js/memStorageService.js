@@ -41,6 +41,9 @@ angular.module('appMain').service('memStorageService', function ($q) {
             if (keys.allMems != null) {
                 //set class.data to the returned objects
                 _this.data = keys.allMems;
+                for (var i=0; i<_this.data.length; i++) {
+                    _this.data[i]['id'] = i + 1;
+                }
                 //send this back to whoever called me
                 //console.log(_this.data);
                 callback(_this.data);

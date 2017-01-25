@@ -3,18 +3,13 @@
 
 body {
     background-color:#ff9900; /*ff9900, F9BF3B, ee9944*/
-    min-width:400px;
+    min-width:350px;
     font-family: 'Lato', serif;
 }
 
 .footer-div {
     margin-left: 13px;
     font-size: 10px;
-}
-
-.main-back {
-    height:auto;
-    overflow:hidden;
 }
 
 .bold-text {
@@ -30,17 +25,6 @@ body {
     font-size: 11px;
 }
 
-.search-bar {
-    min-width:400px;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: left;
-    font-size: 15px;
-    color: #b56969;
-    border-radius: 4px;
-}
-
 .todo-item .btn-remove-todo {
     display:none;
 }
@@ -52,17 +36,8 @@ body {
 .todo-item .todo-content {
     font-weight: bold;
 }
-.todo-item.completed .todo-content {
-    color:darkgray;
-    font-weight: normal;
-    text-decoration: line-through;
-}
 
 #todo-list {
-    margin-bottom: 10px;
-}
-
-#btn-remove-all {
     margin-bottom: 10px;
 }
 
