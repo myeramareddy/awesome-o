@@ -4,11 +4,11 @@
 </head>
 <body>
 
-    <div class="card card--medium center-text fixed-header">
+    <div class="card card--medium center-text">
         <h2 class="card__title">History</h2>
         <p class='card__text'>Total : {{memList.length}}</p>
       
-        <form ng-if="memList.length > 0">
+        <form>
             <input style='width:100%;height:35px;text-align:center;color:#F22613' ng-model="searchText" type="text" placeholder=" Looking for something...?"></input>
         </form>
     </div>
